@@ -14,7 +14,7 @@ const Highlight = ({weather}) => {
       return (
         <>
           <div>
-            <div className='bg-Card w-fit p-3'>
+            <div className='bg-Card w-fit p-3 ml-8 md:ml-0'>
               <h2 className='text-white text-sm'>Today's Highlight</h2>
 
               {/* Humidity */}
@@ -25,7 +25,7 @@ const Highlight = ({weather}) => {
                   </div>
                   <div className='flex flex-row gap-x-20 mt-3'>
                     <div className='mt-2'>
-                      <p className='text-4xl'>{humidity}</p>
+                      <p className='text-2xl md:text-4xl'>{humidity}</p>
                     </div>
 
                     <div className='flex flex-col gap-y-2'>
@@ -53,7 +53,7 @@ const Highlight = ({weather}) => {
                   </div>
                   <div className='flex flex-row gap-x-20 mt-3'>
                     <div className='mt-2'>
-                      <p className='text-4xl'>{visibility}</p>
+                      <p className='text-2xl md:text-4xl'>{visibility}</p>
                     </div>
 
                     <div className='flex flex-col gap-y-2'>
@@ -78,17 +78,16 @@ const Highlight = ({weather}) => {
                     <h4>Feels like</h4>
                   </div>
                   <div className='flex flex-row gap-x-2 mt-3'>
-                      <svg
-                        fill='currentColor'
-                        viewBox='0 0 16 16'
-                        height='2em'
-                        width='1em'
-  
-                      >
-                        <path d='M9.5 12.5a1.5 1.5 0 11-2-1.415V6.5a.5.5 0 011 0v4.585a1.5 1.5 0 011 1.415z' />
-                        <path d='M5.5 2.5a2.5 2.5 0 015 0v7.55a3.5 3.5 0 11-5 0V2.5zM8 1a1.5 1.5 0 00-1.5 1.5v7.987l-.167.15a2.5 2.5 0 103.333 0l-.166-.15V2.5A1.5 1.5 0 008 1z' />
-                      </svg>
-                      <p className='text-4xl'>{feelsLike}</p>
+                    <svg
+                      fill='currentColor'
+                      viewBox='0 0 16 16'
+                      height='2em'
+                      width='1em'
+                    >
+                      <path d='M9.5 12.5a1.5 1.5 0 11-2-1.415V6.5a.5.5 0 011 0v4.585a1.5 1.5 0 011 1.415z' />
+                      <path d='M5.5 2.5a2.5 2.5 0 015 0v7.55a3.5 3.5 0 11-5 0V2.5zM8 1a1.5 1.5 0 00-1.5 1.5v7.987l-.167.15a2.5 2.5 0 103.333 0l-.166-.15V2.5A1.5 1.5 0 008 1z' />
+                    </svg>
+                    <p className='text-2xl md:text-4xl'>{feelsLike}</p>
                   </div>
                 </div>
               </div>

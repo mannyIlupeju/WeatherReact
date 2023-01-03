@@ -1,5 +1,5 @@
 import React, {useRef} from 'react'
-import SearchIcon from "@mui/icons-material/Search";
+
 
 
 
@@ -19,7 +19,7 @@ const Header = ({city, setCity}) => {
     setCity(inputRef.current.value);
   }
 
-  console.log(city)
+
 
 
 
@@ -27,14 +27,17 @@ const Header = ({city, setCity}) => {
   return (
     <>
       <div className='container-width mx-auto p-10'>
-        <div className='wrapper flex flex-row gap-x-2 bg-slate-600 p-5 rounded-3xl searchStyle w-full'>
+        <div className='text-center title-Card p-2'>
+        <h1 className='text-slate-900 lg:text-4xl text-2xl font-semibold'>Weather App</h1>
+        </div>
+        <div className='wrapper flex flex-row gap-x-2 bg-slate-600 p-5 rounded-2xl searchStyle w-full mt-10'>
           <input
             ref={inputRef}
             type='text'
-            size={40}
+            size={20}
             placeholder='Enter City'
             onKeyDown={submit}
-            className='rounded-2xl searchBar'
+            className='rounded-2xl searchBar text-zinc-700'
           />
           <div className='bg-gray-200 p-2 rounded-3xl items-center flex cursor-pointer searchBubble '>
             <svg

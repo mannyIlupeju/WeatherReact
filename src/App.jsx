@@ -9,13 +9,13 @@ function App() {
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState(null)
 
-  console.log(city)
+
 
 
   //Fetch City
   useEffect(()=>{
     if(city === '') {
-      console.log('nothing yet')
+      console.log('please enter city')
     } else {
       const fetchInfo = async() => {
         const response = await fetch(
@@ -31,28 +31,37 @@ function App() {
       fetchInfo()
     }
     
-    
+    // localStorage.setItem('search', city)
     
 
   },[city])
 
-  console.log(weather)
-  
+
  
  
 
 
   return (
-   <>
-   <div className="container-width h-screen grid grid-cols-2 mx-auto">
-    <div className="w-full col-span-2 grid justify-center">
-    <Header city={city} setCity={setCity}/>
-    </div>
-    <CurrentWeather weather={weather}/>
-    <Highlight weather={weather}/>
-   </div>
-   </>
-  )
+    <>
+      <div className='container-width h-screen flex flex-col'>
+        <div className='grid col-span-2'>
+          <Header city={city} setCity={setCity} />
+       </div>    
+
+        <div className="flex flex-col md:flex-row gap-x-6 gap-y-6 justify-center">
+        <CurrentWeather weather={weather}/>
+        <Highlight weather={weather}/>
+        </div>
+      
+     
+       
+      
+       
+     
+       
+      </div>
+    </>
+  );
 }
 
 export default App

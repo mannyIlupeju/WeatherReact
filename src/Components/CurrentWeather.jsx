@@ -8,17 +8,6 @@ import DateObject from 'react-date-object';
 
 const CurrentWeather = ({weather}) => {
 
-// let today = new Date();
-// let date = today.getFullDay().toString()
-// console.log(date)
-// // let date =
-// //   today.getDate() +
-// //   "/" +
-// //   parseInt(today.getMonth() + 1) +
-// //   "/" +
-// //   today.getFullYear();
-// // console.log(date);
-
  var date = new DateObject();
  let currentDate = date.format("dddd, MMMM YYYY");
 
@@ -47,7 +36,7 @@ const CurrentWeather = ({weather}) => {
 
             <div className='flex flex-col hBar'>
               <div>
-                <p className='text-7xl font-semibold text-white'>{temp}</p>
+                <p className='text-2xl md:text-7xl font-semibold text-white'>{temp}</p>
               </div>
 
               <div className='mt-2'>
