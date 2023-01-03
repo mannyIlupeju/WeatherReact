@@ -1,6 +1,27 @@
 import React from 'react'
+import {motion} from 'framer-motion'
+
+
 
 const Highlight = ({weather}) => {
+
+   const highlightVariant = {
+    hidden: {
+      x: "10vw",
+      opacity: 0,
+    },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        type: 'spring',
+        stiffness: '10',
+        duration: 1
+      }
+    }
+  }
+  
+
   if(!weather) {
     console.log('nada')
   }
@@ -14,7 +35,10 @@ const Highlight = ({weather}) => {
       return (
         <>
           <div>
-            <div className='bg-Card w-fit p-3 ml-8 md:ml-0'>
+            <motion.div className='bg-Card w-fit p-3 ml-8 md:ml-0'
+            variants={highlightVariant}
+            initial={'hidden'}
+            animate={'visible'}>
               <h2 className='text-white text-sm'>Today's Highlight</h2>
 
               {/* Humidity */}
@@ -91,7 +115,7 @@ const Highlight = ({weather}) => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </>
       );

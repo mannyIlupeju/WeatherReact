@@ -1,12 +1,28 @@
 import React from 'react'
 import { FaMapMarkerAlt, FaRegCalendarAlt } from "react-icons/fa";
 import DateObject from 'react-date-object';
-
+import {motion} from 'framer-motion'
 
 
 
 
 const CurrentWeather = ({weather}) => {
+
+  const weatherVariant = {
+    hidden: {
+      x: "-10vw",
+      opacity: 0,
+    },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        type: 'spring',
+        stiffness: '10',
+        duration: 1
+      }
+    }
+  }
 
  var date = new DateObject();
  let currentDate = date.format("dddd, MMMM YYYY");
@@ -26,7 +42,10 @@ const CurrentWeather = ({weather}) => {
     return (
       <div className='container-width mx-auto'>
         <div>
-          <div className='bg-Card p-8 rounded-xl w-fit'>
+          <motion.div className='bg-Card p-8 rounded-xl w-fit'
+          variants={weatherVariant}
+          initial={"hidden"}
+          animate={"visible"}>
               <div className='relative right-6'>
                 <img
                   src={`https://weatherbit.io/static/img/icons/${iconUrl}.png`}
@@ -60,7 +79,7 @@ const CurrentWeather = ({weather}) => {
             </div>
 
             <div></div>
-          </div>
+          </motion.div>
         </div>
       </div>
     );
