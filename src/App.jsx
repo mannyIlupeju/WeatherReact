@@ -1,5 +1,6 @@
 import Header from "./Components/Header"
 import CurrentWeather from "./Components/CurrentWeather"
+import Highlight from "./Components/Highlight";
 import { useState, useEffect } from "react"
 
 
@@ -43,9 +44,12 @@ function App() {
 
   return (
    <>
-   <div className="container-width h-screen flex flex-col mx-auto bg-gray-200">
+   <div className="container-width h-screen grid grid-cols-2 mx-auto">
+    <div className="w-full col-span-2 grid justify-center">
     <Header city={city} setCity={setCity}/>
+    </div>
     <CurrentWeather weather={weather}/>
+    <Highlight weather={weather}/>
    </div>
    </>
   )
