@@ -42,7 +42,7 @@ const Header = ({city, setCity}) => {
     <>
       <div className='container-width mx-auto p-10'>
         <div className='text-center title-Card p-2'>
-        <h1 className='text-slate-700 lg:text-4xl text-2xl font-semibold'>Weather App</h1>
+        <h1 className='text-white lg:text-4xl text-2xl font-semibold'>Weather App</h1>
         </div>
         <motion.div className='wrapper flex flex-row gap-x-2 bg-slate-600 p-5 rounded-2xl searchStyle w-full mt-10'
         variants={searchVariant}
