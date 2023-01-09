@@ -3,7 +3,10 @@ import {motion} from 'framer-motion'
 
 
 
+
 const Highlight = ({weather}) => {
+
+
 
    const highlightVariant = {
     hidden: {
@@ -23,7 +26,7 @@ const Highlight = ({weather}) => {
   
 
   if(!weather) {
-    console.log('nada')
+  return null
   }
   else {
     const {data} = weather

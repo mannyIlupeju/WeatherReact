@@ -29,7 +29,7 @@ const CurrentWeather = ({weather}) => {
 
   
   if(!weather) {
-    console.log('nada')
+   return null
   }
   else {
     const {data} = weather
