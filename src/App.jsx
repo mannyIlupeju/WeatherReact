@@ -4,6 +4,7 @@ import Highlight from "./Components/Highlight";
 import ErrorMessage from "./Components/ErrorMessage";
 import { useState, useEffect } from "react"
 import ClockLoader from "react-spinners/ClockLoader";
+import Preloader from "./Components/Preloader";
 
 
 function App() {
@@ -12,9 +13,18 @@ function App() {
   const [loading, setLoading] = useState(false)
   let [color, setColor] = useState("#000000");
   const [message, setMessage] = useState(false)
+  const [preLoader, setPreLoader] = useState(false)
   
   console.log(loading)
 
+
+  //PreLoader setting
+  useEffect(()=>{
+    setPreLoader(true)
+    setTimeout(()=>{
+      setPreLoader(false)
+    }, 2000)
+  },[])
 
 
   //Fetch City
@@ -62,21 +72,28 @@ function App() {
 
   return (
     <>
+    {
+      preLoader ? 
+
+      <Preloader/>
+
+      :
+
       <div className='container-width h-screen flex flex-col app'>
         <div className='grid col-span-2'>
           <Header city={city} setCity={setCity} />
        </div> 
 
       {
-      loading ?
-         <ClockLoader
+        loading ?
+        <ClockLoader
         color={color}
         loading={loading}
         size={50}
         aria-label="Loading Spinner"
         data-testid="loader"
-      />
-      :
+        />
+        :
         (<div className="flex flex-col md:flex-row gap-x-6 gap-y-6 justify-center">
         <CurrentWeather weather={weather} />
         <Highlight weather={weather}/>
@@ -90,6 +107,7 @@ function App() {
       }
     </div>
     </div>
+    }
     </>
   );
 }
