@@ -33,6 +33,7 @@ const CurrentWeather = ({weather}) => {
   }
   else {
     const {data} = weather
+
     const iconUrl = data[0].weather.icon
     const cityName = data[0].city_name;
     const weatherDescription = data[0].weather.description;

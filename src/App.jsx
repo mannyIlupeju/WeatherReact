@@ -7,6 +7,7 @@ import ClockLoader from "react-spinners/ClockLoader";
 import Preloader from "./Components/Preloader";
 
 
+
 function App() {
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState(null)
@@ -15,7 +16,7 @@ function App() {
   const [message, setMessage] = useState(false)
   const [preLoader, setPreLoader] = useState(false)
   
-  console.log(loading)
+  console.log(city)
 
 
   //PreLoader setting
@@ -33,10 +34,12 @@ function App() {
       setMessage(false)
     } else {
       setLoading(true)
+
       setTimeout(()=>{
         const fetchInfo = async() => {
           const response = await fetch(
-            `https://api.weatherbit.io/v2.0/current?&city=${city}&key=3b86c1d049804ca1a4c9743fd9fe850d`
+            `https://api.weatherbit.io/v2.0/current?&city=${city}&key=04a6375d8a1a49c4a709e5b9557f570c`
+            // `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=bf09fbf757049c5bb8e1c795e778ea4a`
             );
 
             //Error handling if fetch is rejected
@@ -48,6 +51,7 @@ function App() {
             }
             //If response is received, this happens next
             const data = await response.json();
+            console.log(data)
             setWeather(data)
             setLoading(false)
             
@@ -60,7 +64,7 @@ function App() {
 
     }
     
-    // localStorage.setItem('search', city)
+
     
 
   },[city])

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 
 
 const Header = ({city, setCity}) => {
+  console.log(city)
   const inputRef = useRef(null)
   
 
